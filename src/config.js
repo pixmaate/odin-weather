@@ -13,10 +13,10 @@ class CurrentWeather {
         .then((response) => {
             if (celsiusFarenheit === 'C') {
                 const newReport = new CurrentWeatherDOM(response.current.temp_c,response.current.feelslike_c, response.current.condition.text, response.current.condition.icon, response.current.wind_kph, response.location.name, 'C')
-               // this.getNextDay('C');
+                this.getNextDay('C');
             } else if (celsiusFarenheit === 'F') {
                 const newReport = new CurrentWeatherDOM(response.current.temp_f,response.current.feelslike_f, response.current.condition.text, response.current.condition.icon, response.current.wind_mph, response.location.name, 'F')
-               // this.getNextDay('F');
+                this.getNextDay('F');
             };       
         })
         .catch((err) => {
@@ -29,9 +29,9 @@ class CurrentWeather {
         .then((response) => response.json())
         .then((response) => {
             if (celsiusFarenheit === 'C') {
-                const newTomo = new NextDayDOM(response.forecast[1].day.maxtemp_c, response.forecast[1].day.condition.text, response.forecast[1].day.condition.icon, response.forecast[1].day.maxwind_kph, 'C')
+                const newTomo = new NextDayDOM(response.forecast.forecastday[1].day.maxtemp_c, response.forecast.forecastday[1].day.condition.text, response.forecast.forecastday[1].day.condition.icon, response.forecast.forecastday[1].day.maxwind_kph, 'C')
             } else if (celsiusFarenheit === 'F') {
-                const newTomo = new NextDayDOM(response.forecast[1].day.maxtemp_f, response.forecast[1].day.condition.text, response.forecast[1].day.condition.icon, response.forecast[1].day.maxwind_mph, 'F')
+                const newTomo = new NextDayDOM(response.forecast.forecastday[1].day.maxtemp_f, response.forecast.forecastday[1].day.condition.text, response.forecast.forecastday[1].day.condition.icon, response.forecast.forecastday[1].day.maxwind_mph, 'F')
             }
         })
         .catch((err) => {
@@ -133,9 +133,9 @@ class NextDayDOM {
         weatherTemp.innerHTML = '';
         const tempActual = document.createElement('p');
         if (this.CorF === 'C') {
-            tempActual.textContent = `${this.tempC} C`;
+            tempActual.textContent = `${this.temp} C`;
         } else if (this.CorF === 'F') {
-            tempActual.textContent = `${this.tempC} F`;
+            tempActual.textContent = `${this.temp} F`;
         }        
         tempActual.style.cssText = 'font-size:1.3rem;font-weight:600;';
        
@@ -162,9 +162,9 @@ class NextDayDOM {
         const weatherWind = document.querySelector('#windTomo');
         weatherWind.innerHTML = '';
         if (this.CorF === 'C') {
-            weatherWind.textContent = `Wind: ${this.windKPH} KM/H`;
+            weatherWind.textContent = `Wind: ${this.wind} KM/H`;
         } else if (this.CorF === 'F') {
-            weatherWind.textContent = `Wind: ${this.windKPH} MP/H`;
+            weatherWind.textContent = `Wind: ${this.wind} MP/H`;
         };        
     }
 
