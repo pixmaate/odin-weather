@@ -2,7 +2,8 @@
     font-size: 16px;
 }
 
-#weatherCard {
+#weatherCard,
+#tomorrowCard {
     background-color: aliceblue;
     padding: 2rem;
     display: flex;
@@ -35,4 +36,5 @@
 #searchBar {
     display: flex;
     flex-direction: row;
+    gap: 4px;
 }
