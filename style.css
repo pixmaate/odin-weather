@@ -1,0 +1,32 @@
+:root {
+    font-size: 16px;
+}
+
+#weatherCard {
+    background-color: aliceblue;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    max-width: fit-content;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#mainCard,
+#conditions,
+#temperature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    border-bottom: 5px;
+    border-bottom-style: double;
+    margin-bottom: 10px;
+}
