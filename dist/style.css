@@ -17,7 +17,9 @@
 
 #mainCard,
 #conditions,
-#temperature {
+#temperature,
+#temperatureTomo,
+#conditionsTomo {
     display: flex;
     flex-direction: column;
     align-items: center;
